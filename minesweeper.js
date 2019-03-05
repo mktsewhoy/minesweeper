@@ -31,18 +31,15 @@ var board = {
 };
 
 function startGame () {
-  var boardSize = Math.sqrt(board.cells.length);
-  /*for (r = 0; r < boardSize; r++) { // Row loop.
-      countSurroundingMines(board.cells.row[r]);
-    for (c = 0 ; c < Math.sqrt(boardSize); c++) { // Column loop.
-      countSurroundingMines(board.cells[c]]);
-    }
+   for (c = 0;c < board.cells.length; c++) { // Loop thru board.
+    board.cells[c].surroundingMines == countSurroundingMines(board.cells[c]); // call countSurroundingMines & copy returned values into board's surroundingMines object.
   }
-  document.addEventListener;*/
-  
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
+
+// Check if player has won if all the magic squares have been clicked. 
+document.addEventListener("click", checkForWin);
 
 // Define this function to look for a win condition:
 //
@@ -52,16 +49,16 @@ function checkForWin () {
   var allUncovered = false;
   var allMarked = false;
   for (chk = 0; chk < board.cells.length; chk++){
-    if (board.cells[chk].isMine == false && board.cells[chk].hidden == true){
-      allUncovered == false;
+    if (board.cells[chk].isMine === false && board.cells[chk].hidden === true){
+      return;
     } else {allUncovered == true;}
-    if (board.cells[chk].isMine == true && board.cells[chk].isMarked == false){
-      allMarked == false;
+    if (board.cells[chk].isMine === true && board.cells[chk].isMarked === false){
+      return;
     } else {allMarked == true;}
   }
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
-  if (allUncovered == true && allMarked == true){
+  if (allUncovered === true && allMarked === true){
      lib.displayMessage('You win!');
   }
 }
@@ -75,8 +72,13 @@ function checkForWin () {
 // It will return cell objects in an array. You should loop through 
 // them, counting the number of times `cell.isMine` is true.
 function countSurroundingMines (cell) {
-  var howManyMinesAround = 0;
-  var surroundingCells = lib.getSurroundingCells(cell.row, cell.col);
-  
+  var numSurround = 0; // define # of surrounding mines.
+  var surrounding = lib.getSurroundingCells(cell.row, cell.col); // call getSurroundingCells & copy it into 'surrounding'.
+  for (var c = 0; c < surrounding.length; c++) { // Loop thru incoming cells.
+    if (surrounding[c].isMine === true) { // Increment numSurround if adjacent mines detected.
+      numSurround++;
+    }
+  }
+  return numSurround;
 }
 
