@@ -3,10 +3,12 @@ document.addEventListener('DOMContentLoaded', startGame)
 // Define your `board` object here!
 var board = {
   cells: [ //'cells' should be an array
-    
-    {row:0,col:1},
-    {row:2,col:3}
-    
+    {row:0, col:0, isMine:false, hidden:true}, {row:0, col:1, isMine:false, hidden:true}, {row:0, col:2, isMine:false, hidden:true}, {row:0, col:3, isMine:false, hidden:true}, {row:0, col:4, isMine:false, hidden:true}, {row:0, col:5, isMine:false, hidden:true},
+    {row:1, col:0, isMine:false, hidden:true}, {row:1, col:1, isMine:false, hidden:true}, {row:1, col:2, isMine:false, hidden:true}, {row:1, col:3, isMine:false, hidden:true}, {row:1, col:4, isMine:false, hidden:true}, {row:1, col:5, isMine:false, hidden:true},
+    {row:2, col:0, isMine:false, hidden:true}, {row:2, col:1, isMine:false, hidden:true}, {row:2, col:2, isMine:false, hidden:true}, {row:2, col:3, isMine:false, hidden:true}, {row:2, col:4, isMine:false, hidden:true}, {row:2, col:5, isMine:false, hidden:true},
+    {row:3, col:0, isMine:false, hidden:true}, {row:3, col:1, isMine:false, hidden:true}, {row:3, col:2, isMine:false, hidden:true}, {row:3, col:3, isMine:false, hidden:true}, {row:3, col:4, isMine:false, hidden:true}, {row:3, col:5, isMine:false, hidden:true},
+    {row:4, col:0, isMine:false, hidden:true}, {row:4, col:1, isMine:false, hidden:true}, {row:4, col:2, isMine:false, hidden:true}, {row:4, col:3, isMine:false, hidden:true}, {row:4, col:4, isMine:false, hidden:true}, {row:4, col:5, isMine:false, hidden:true}, 
+    {row:5, col:0, isMine:false, hidden:true}, {row:5, col:1, isMine:false, hidden:true}, {row:5, col:2, isMine:false, hidden:true}, {row:5, col:3, isMine:false, hidden:true}, {row:5, col:4, isMine:false, hidden:true}, {row:5, col:5, isMine:false, hidden:true}
   ]
 };
 
