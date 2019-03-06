@@ -31,10 +31,10 @@ var board = {
 };
 
 function startGame () {
-    // Optional: randomise the mine layout with a 20% chance of planting one.
+    // Optional: randomise the mine layout with a 20% chance of planting one. Enough for a decent challenge but not too many to crowd it out.
     // Needs separate loop to generate it, or the surroundingMines property will be messed up.
     for (c = 0;c < board.cells.length; c++) {
-      if (Math.random() < .2) {
+      if (Math.random() < .20) {
       board.cells[c].isMine = true;
       }
     }
@@ -48,7 +48,7 @@ function startGame () {
 }
 
 // Check if player has won if all the magic squares have been clicked. 
-document.addEventListener("click", checkForWin);
+document.addEventListener("click", checkForWin); // Left-click mouse triggers checkForWin.
 
 // Define this function to look for a win condition:
 //
@@ -103,3 +103,11 @@ function countSurroundingMines (cell) {
   return numSurround;
 }
 
+/*function generateCells(row,col) {
+  for (var c = 0; c < 36; c++) {
+    board.cells[c].row == c;
+    board.cells[c].isMine == false;
+    board.cells[c].isMarked == false;
+    board.cells[c].hidden == true;
+  }
+}*/
