@@ -32,7 +32,7 @@ var board = {
 
 function startGame () {
    for (c = 0;c < board.cells.length; c++) { // Loop thru board cells.
-    board.cells[c].surroundingMines == countSurroundingMines(board.cells[c]); // call countSurroundingMines & copy returned values into each cell's 'surroundingMines' object.
+    board.cells[c].surroundingMines = countSurroundingMines(board.cells[c]); // call countSurroundingMines & copy returned values into each cell's 'surroundingMines' object.
   }
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
