@@ -50,11 +50,12 @@ div.mine, div.mine:hover {
 }
 
 div.hidden {
-  background: #eee;
+  background: #cfc;
+  //background-image: "/images/greencamo.jpg";
 }
 
 div.hidden:hover {
-  background: #ccc;
+  background: #8f8;
 }
 
 div.marked, div.marked:hover {

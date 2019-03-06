@@ -14,10 +14,10 @@ var board = {
 
     {row:2, col:0, isMine:false, isMarked: false, hidden:true}, {row:2, col:1, isMine:false, isMarked: false, hidden:true},
     {row:2, col:2, isMine:false, isMarked: false, hidden:true}, {row:2, col:3, isMine:false, isMarked: false, hidden:true},
-    {row:2, col:4, isMine:true, isMarked: false, hidden:true}, {row:2, col:5, isMine:false, isMarked: false, hidden:true},
+    {row:2, col:4, isMine:false, isMarked: false, hidden:true}, {row:2, col:5, isMine:false, isMarked: false, hidden:true},
 
     {row:3, col:0, isMine:false, isMarked: false, hidden:true}, {row:3, col:1, isMine:false, isMarked: false, hidden:true},
-    {row:3, col:2, isMine:false, isMarked: false, hidden:true}, {row:3, col:3, isMine:true, isMarked: false, hidden:true},
+    {row:3, col:2, isMine:false, isMarked: false, hidden:true}, {row:3, col:3, isMine:false, isMarked: false, hidden:true},
     {row:3, col:4, isMine:false, isMarked: false, hidden:true}, {row:3, col:5, isMine:false, isMarked: false, hidden:true},
 
     {row:4, col:0, isMine:false, isMarked: false, hidden:true}, {row:4, col:1, isMine:false, isMarked: false, hidden:true},
@@ -31,7 +31,16 @@ var board = {
 };
 
 function startGame () {
-   for (c = 0;c < board.cells.length; c++) { // Loop thru board cells.
+    // Optional: randomise the mine layout with a 20% chance of planting one.
+    // Needs separate loop to generate it, or the surroundingMines property will be messed up.
+    for (c = 0;c < board.cells.length; c++) {
+      if (Math.random() < .2) {
+      board.cells[c].isMine = true;
+      }
+    }
+    //board.cells[4].isMine = true;
+    //board.cells[13].isMine = true;
+  for (c = 0;c < board.cells.length; c++) { // Loop thru board cells.
     board.cells[c].surroundingMines = countSurroundingMines(board.cells[c]); // call countSurroundingMines & copy returned values into each cell's 'surroundingMines' object.
   }
   // Don't remove this function call: it makes the game work!
