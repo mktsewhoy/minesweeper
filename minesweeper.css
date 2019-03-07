@@ -61,3 +61,12 @@ div.hidden:hover {
 div.marked, div.marked:hover {
   background: no-repeat center/60% url("images/mark.svg") deepskyblue;
 }
+
+button {
+  font-size: 1.25rem;
+  font-family: 'Stardos Stencil', cursive;
+  font-color: #fff;
+  background-color: #080;
+  margin: 16px;
+  padding: 16px;
+}

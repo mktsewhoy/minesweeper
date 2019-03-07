@@ -30,6 +30,10 @@ var board = {
   ]
 };
 
+// Reset board button.
+//var resetBoard = document.querySelector(".reset");
+//resetBoard.addEventListener("click", location.reload());
+
 function startGame () {
     // Optional: randomise the mine layout with a 20% chance of planting one. Enough for a decent challenge but not too many to crowd it out.
     // Needs separate loop to generate it, or the surroundingMines property will be messed up.
