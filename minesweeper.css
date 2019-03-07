@@ -65,7 +65,7 @@ div.marked, div.marked:hover {
 button {
   font-size: 1.25rem;
   font-family: 'Stardos Stencil', cursive;
-  font-color: #fff;
+  color: #fff;
   background-color: #080;
   margin: 16px;
   padding: 16px;
