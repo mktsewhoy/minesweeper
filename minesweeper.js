@@ -34,26 +34,28 @@ var board = {
 //var resetBoard = document.querySelector(".reset");
 //resetBoard.addEventListener("click", location.reload());
 
+// Check if player has won if all the magic squares have been clicked. 
+document.addEventListener("contextmenu", checkForWin); //Right-click detect.
+document.addEventListener("click", checkForWin); // Left-click mouse triggers checkForWin.
+
+
 function startGame () {
-    // Optional: randomise the mine layout with a 20% chance of planting one. Enough for a decent challenge but not too many to crowd it out.
-    // Needs separate loop to generate it, or the surroundingMines property will be messed up.
-    for (c = 0;c < board.cells.length; c++) {
-      if (Math.random() < .20) {
-      board.cells[c].isMine = true;
-      }
+  // Optional: randomise the mine layout with a 20% chance of planting one. Enough for a decent challenge but not too many to crowd it out.
+  // Needs separate loop to generate it, or the surroundingMines property will be messed up.
+  for (c = 0;c < board.cells.length; c++) {
+    if (Math.random() < .20) {
+    board.cells[c].isMine = true;
     }
-    //board.cells[4].isMine = true;
-    //board.cells[13].isMine = true;
+  }
+  //board.cells[4].isMine = true;
+  //board.cells[13].isMine = true;
+
   for (c = 0;c < board.cells.length; c++) { // Loop thru board cells.
     board.cells[c].surroundingMines = countSurroundingMines(board.cells[c]); // call countSurroundingMines & copy returned values into each cell's 'surroundingMines' object.
   }
   // Don't remove this function call: it makes the game work!
   lib.initBoard()
 }
-
-// Check if player has won if all the magic squares have been clicked. 
-document.addEventListener("click", checkForWin); // Left-click mouse triggers checkForWin.
-document.addEventListener("contextMenu", checkForWin) //Right-click detect.
 
 // Define this function to look for a win condition:
 //
