@@ -49,6 +49,7 @@ function startGame () {
 
 // Check if player has won if all the magic squares have been clicked. 
 document.addEventListener("click", checkForWin); // Left-click mouse triggers checkForWin.
+document.addEventListener("contextMenu", checkForWin) //Right-click detect.
 
 // Define this function to look for a win condition:
 //
@@ -80,7 +81,9 @@ function checkForWin () {
   // detected that they've won, that is!)
   //if (allUncovered === true && allMarked === true){
     if (numMarkedMines === numAllMines) {
-     lib.displayMessage('You win!');
+      var soundWin = document.querySelector(".soundWin");
+      soundWin.play();
+      lib.displayMessage('You win!');
     } else {return;}
 }
 
